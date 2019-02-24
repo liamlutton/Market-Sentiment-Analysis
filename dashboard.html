@@ -43,7 +43,6 @@
                 </div>
             </div>
 
-
             <div class="main-menu">
                 <div class="menu-inner">
                     <nav>
@@ -102,7 +101,6 @@
                     </div>
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Donald Glover<i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Message</a>
@@ -116,79 +114,71 @@
             <!-- page title area end -->
             <div class="main-content-inner">
 
-
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                 <script src="/socket.io/socket.io.js"></script>
                 <script src="assets/js/display.js"></script>
 
-
                 <div class="row">
-                  <div class="col-lg-4">
-                    <div class = "col">
-                      <br>
-                      <div class="card" style = "background-color: lightgreen ;">
-                          <div class="card-body">
-                              <h4 class="header-title">Positive Perception</h4>
-                              <div class="cripto-live mt-5">
-                                  <ul id ="positiveContent">
-                                  </ul>
-                              </div>
-                          </div>
-                      </div>
+                    <div class="col-lg-4">
+                        <div class="col">
+                            <br>
+                            <div class="card" style="background-color: lightgreen ;">
+                                <div class="card-body">
+                                    <h4 class="header-title">Positive Perception</h4>
+                                    <div class="cripto-live mt-5">
+                                        <ul id="positiveContent">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
 
-
-                      <br>
-                      <div class="card" style = "background-color: salmon ;">
-                        <div class="card-body">
-                            <h4 class="header-title">Negative Perception</h4>
-                            <div class="cripto-live mt-5">
-                                <ul id ="negativeContent">
-                                </ul>
+                            <br>
+                            <div class="card" style="background-color: salmon ;">
+                                <div class="card-body">
+                                    <h4 class="header-title">Negative Perception</h4>
+                                    <div class="cripto-live mt-5">
+                                        <ul id="negativeContent">
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
 
                     <!-- Live Crypto Price area start -->
                     <div class="col-lg-4">
-                      <br>
-                      <div class="card">
-                          <div class="card-body">
-                              <h4 class="header-title">Emotional Analysis</h4>
-                              <div class="cripto-live mt-5">
-                                  <ul id ="stockEmotions">
-                                  </ul>
-                              </div>
-                          </div>
-                      </div>
+                        <br>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Emotional Analysis</h4>
+                                <div class="cripto-live mt-5">
+                                    <ul id="stockEmotions">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+                    <div class="col-lg-4">
+                        <br>
 
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Emotional Breakdown from Recent Media</h4>
+                                <div class="cripto-live mt-5">
+                                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <script>
+                    </script>
+                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-
-<div class="col-lg-4">
-        <br>
-
-    <div class="card">
-        <div class="card-body">
-            <h4 class="header-title">Emotional Breakdown from Recent Media</h4>
-            <div class="cripto-live mt-5">
-                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-
-        </script>
-                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
-                <script>
-                    displayData("sample", "stockEmotions", "positiveContent", "negativeContent", "companyLabel");
-                </script>
+                    <script>
+                        displayData("sample", "stockEmotions", "positiveContent", "negativeContent", "companyLabel");
+                    </script>
 
                 </div>
             </div>
@@ -392,30 +382,30 @@
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="assets/js/jquery.slicknav.min.js"></script>
 
-   <!-- start chart js -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-   <!-- start highcharts js -->
-   <script src="https://code.highcharts.com/highcharts.js"></script>
-   <!-- start zingchart js -->
-   <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-   <script>
-   zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-   ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-   </script>
-   <!-- start amchart js -->
-   <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-   <script src="https://www.amcharts.com/lib/3/serial.js"></script>
-   <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-   <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-   <!-- all line chart activation -->
-   <script src="assets/js/customCharts.js"></script>
-   <!-- all bar chart activation -->
-   <script src="assets/js/bar-chart.js"></script>
-   <!-- all pie chart -->
-   <script src="assets/js/pie-chart.js"></script>
-   <!-- others plugins -->
-   <script src="assets/js/plugins.js"></script>
-   <script src="assets/js/scripts.js"></script>
+    <!-- start chart js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- start highcharts js -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- start zingchart js -->
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script>
+        zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+        ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+    </script>
+    <!-- start amchart js -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <!-- all line chart activation -->
+    <script src="assets/js/customCharts.js"></script>
+    <!-- all bar chart activation -->
+    <script src="assets/js/bar-chart.js"></script>
+    <!-- all pie chart -->
+    <script src="assets/js/pie-chart.js"></script>
+    <!-- others plugins -->
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/scripts.js"></script>
 
 </body>
 

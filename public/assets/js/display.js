@@ -1,4 +1,5 @@
 var dataGlobal;
+
 var dataPointsUsed = [];
 
 var socket = io();
@@ -7,99 +8,56 @@ var globalCompanyName;
 
 var globalNumArticles;
 
-function getJSON(company) {
+function getJSON(a) {
     path = "../../data.json";
-
-    // Do something
-    $.getJSON(path, function(json) {
-        dataGlobal = json; // this will show the info it in firebug console
+    $.getJSON(path, function(a) {
+        dataGlobal = a;
     });
-
 }
 
-function setNumArticles(numToSet) {
-    alert(numToSet);
-    globalNumArticles = numToSet;
+function setNumArticles(a) {
+    alert(a);
+    globalNumArticles = a;
 }
 
-function getNumARticles() {
+function getNumARticles() {}
 
-}
-
-//getJSON();
-
-function displayData(comanyName, stockGeneral, positiveId, negativeID, titleOfCompany) {
-    getJSON(comanyName);
-
-    setTimeout(function(){
-        //do what you need here
-
-        displayEmotions(stockGeneral, positiveId, negativeID, titleOfCompany);
-
+function displayData(a, b, c, d, e) {
+    getJSON(a);
+    setTimeout(function() {
+        displayEmotions(b, c, d, e);
     }, 100);
 }
 
-function displayEmotions(documentId, positiveDocId, negativeDocId, companyNameId) {
-
+function displayEmotions(a, b, c, d) {
     output = "";
-
-    //output ="";
-
-    //output = "Emotions:<br>";
-
     dictionary = dataGlobal.emotions;
-
-    for (var key in dictionary) {
-        // check if the property/key is defined in the object itself, not in parent
-        if (dictionary.hasOwnProperty(key)) {
-
-            /**
-            dataPointsUsed.push({
-                key:   "y",
-                value: dictionary[key],
-                key:   "label",
-                value: key
-                });*/
-
-                dataPointsUsed.push({y: dictionary[key], label: key});
-
-
-            if (dictionary[key] > 18) {
-                color = "lightgreen;";
-            } else {
-                color = "red;";
-            }
-            output += '<li>' + key + '<span><i class=""></i>' + dictionary[key] + '</span></li>' ;
-        }
+    for (var e in dictionary) if (dictionary.hasOwnProperty(e)) {
+        dataPointsUsed.push({
+            y: dictionary[e],
+            label: e
+        });
+        if (dictionary[e] > 18) color = "lightgreen;"; else color = "red;";
+        output += "<li>" + e + '<span><i class=""></i>' + dictionary[e] + "</span></li>";
     }
-
-    document.getElementById(companyNameId).innerHTML = dataGlobal.companyName + " (" + dataGlobal.numberArticlesAnalyzed + " nodes back)";
-
-    document.getElementById(documentId).innerHTML += output;
-
-    //display the positive emotion card
+    document.getElementById(d).innerHTML = dataGlobal.companyName + " (" + dataGlobal.numberArticlesAnalyzed + " nodes back)";
+    document.getElementById(a).innerHTML += output;
     positiveOutput = dataGlobal.percentPositive;
-
-    document.getElementById(positiveDocId).innerHTML = positiveOutput + "%";
-
-    //display the negative emotion card
+    document.getElementById(b).innerHTML = positiveOutput + "%";
     negativeOutput = dataGlobal.percentNegative;
-
-    document.getElementById(negativeDocId).innerHTML = negativeOutput + "%";
-
-    var chart = new CanvasJS.Chart("chartContainer", {
+    document.getElementById(c).innerHTML = negativeOutput + "%";
+    var f = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
         title: {
             text: ""
         },
-        data: [{
+        data: [ {
             type: "pie",
             startAngle: 240,
-            yValueFormatString: "##0.00\"%\"",
+            yValueFormatString: '##0.00"%"',
             indexLabel: "{label} {y}",
             dataPoints: dataPointsUsed
-
-        }]
+        } ]
     });
-    chart.render();
+    f.render();
 }

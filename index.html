@@ -43,7 +43,6 @@
                 </div>
             </div>
 
-
             <div class="main-menu">
                 <div class="menu-inner">
                     <nav>
@@ -54,10 +53,8 @@
                                     <li class="active"><a href="/">Stock Information</a></li>
                                     <li class=""><a href="twitter.html">Twitter</a></li>
 
-
                                 </ul>
                             </li>
-
 
                         </ul>
                     </nav>
@@ -126,35 +123,34 @@
                         <button class="btn btn-primary" onclick="getInput('inputTextId');" type="button" data-toggle="" aria-haspopup="" aria-expanded="false">ENTER</button>
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">TRAVEL BACK</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#" onclick = "setNumArticles(5);">~1 Week(s)</a>
-                            <a class="dropdown-item" href="#" onclick = "setNumArticles(10);">~2 Week(s)</a>
-                            <a class="dropdown-item" href="#" onclick = "setNumArticles(20);">~3 Week(s)</a>
+                            <a class="dropdown-item" href="#" onclick="setNumArticles(5);">~1 Week(s)</a>
+                            <a class="dropdown-item" href="#" onclick="setNumArticles(10);">~2 Week(s)</a>
+                            <a class="dropdown-item" href="#" onclick="setNumArticles(20);">~3 Week(s)</a>
                             <div role="separator" class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick = "setNumArticles(40);">A godawful long time (semirandom)</a>
+                            <a class="dropdown-item" href="#" onclick="setNumArticles(40);">A godawful long time (semirandom)</a>
                         </div>
                     </div>
                     <script src="/socket.io/socket.io.js"></script>
                     <script src="/assets/js/display.js"></script>
 
-
                     <script>
+                        var socket = io();
 
-                    var socket = io();
+                        function getInput(userInput) {
+                            input = document.getElementById(userInput).value;
 
-                    function getInput(userInput) {
-                        input = document.getElementById(userInput).value;
+                            socket.emit('request-stock', data = [input, globalNumArticles]);
+                            path = "../../data.json";
 
-                        socket.emit('request-stock', data=[input, globalNumArticles]);
-                        path = "../../data.json";
+                            setTimeout(function() {
+                                window.open('dashboard.html', '_self', false);
+                            }, 1000);
 
-                        setTimeout(function(){ window.open ('dashboard.html','_self',false); }, 1000);
-
-                    }
-
+                        }
                     </script>
 
                 </div>
-                <p class = "single-report"> Traveling back a shorter period of time makes the analysis more relevant to live/very recent events. The default is around 2 weeks. </p>
+                <p class="single-report"> Traveling back a shorter period of time makes the analysis more relevant to live/very recent events. The default is around 2 weeks. </p>
 
             </div>
         </div>
@@ -356,30 +352,30 @@
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="assets/js/jquery.slicknav.min.js"></script>
 
-   <!-- start chart js -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-   <!-- start highcharts js -->
-   <script src="https://code.highcharts.com/highcharts.js"></script>
-   <!-- start zingchart js -->
-   <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-   <script>
-   zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-   ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-   </script>
-   <!-- start amchart js -->
-   <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-   <script src="https://www.amcharts.com/lib/3/serial.js"></script>
-   <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-   <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-   <!-- all line chart activation -->
-   <script src="assets/js/customCharts.js"></script>
-   <!-- all bar chart activation -->
-   <script src="assets/js/bar-chart.js"></script>
-   <!-- all pie chart -->
-   <script src="assets/js/pie-chart.js"></script>
-   <!-- others plugins -->
-   <script src="assets/js/plugins.js"></script>
-   <script src="assets/js/scripts.js"></script>
+    <!-- start chart js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- start highcharts js -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- start zingchart js -->
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script>
+        zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+        ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+    </script>
+    <!-- start amchart js -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <!-- all line chart activation -->
+    <script src="assets/js/customCharts.js"></script>
+    <!-- all bar chart activation -->
+    <script src="assets/js/bar-chart.js"></script>
+    <!-- all pie chart -->
+    <script src="assets/js/pie-chart.js"></script>
+    <!-- others plugins -->
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/scripts.js"></script>
 
 </body>
 
