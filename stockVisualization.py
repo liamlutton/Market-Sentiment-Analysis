@@ -75,9 +75,9 @@ p3.savefig("public/assets/js/meanaverage.png")
 
 from pandas.plotting import table
 
-###ax = plt.subplot(111, frame_on=False) # no visible frame
-###ax.xaxis.set_visible(False)  # hide the x axis
-###ax.yaxis.set_visible(False)  # hide the y axis
+ax = plt.subplot(111, frame_on=False) # no visible frame
+ax.xaxis.set_visible(False)  # hide the x axis
+ax.yaxis.set_visible(False)  # hide the y axis
 
 table(ax, getDataFrame(stockSymbol))  # where df is your data frame
 plt.gcf
