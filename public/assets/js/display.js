@@ -79,7 +79,7 @@ function displayEmotions(documentId, positiveDocId, negativeDocId, companyNameId
     var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
         title: {
-            text: "Emotional Breakdown from Recent Media"
+            text: ""
         },
         data: [{
             type: "pie",

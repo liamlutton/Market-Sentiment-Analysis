@@ -123,9 +123,15 @@
                 <div class="input-group mb-3" style="width:50%;">
                     <input type="text" id="inputTextId" class="form-control" aria-label="Text input with dropdown button">
                     <div class="input-group-append">
-                    <button class="btn btn-primary" onclick="getInput('inputTextId');" type="button" data-toggle="" aria-haspopup="" aria-expanded="false">ENTER</button>
-
-
+                        <button class="btn btn-primary" onclick="getInput('inputTextId');" type="button" data-toggle="" aria-haspopup="" aria-expanded="false">ENTER</button>
+                        <button class="btn btn-primary dropdown-toggle" style = "background-color: lightgreen;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">TRAVEL BACK</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">1 Week(s)</a>
+                            <a class="dropdown-item" href="#">2 Week(s)</a>
+                            <a class="dropdown-item" href="#">3 Week(s)</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">A godawful long time</a>
+                        </div>
                     </div>
                     <script src="/socket.io/socket.io.js"></script>
                     <script src="/assets/js/display.js"></script>
@@ -135,17 +141,13 @@
 
                     var socket = io();
 
-
                     function getInput(userInput) {
-
                         input = document.getElementById(userInput).value;
 
                         socket.emit('request-stock', input);
                         path = "../../data.json";
 
                         setTimeout(function(){ window.open ('dashboard.html','_self',false); }, 1000);
-
-
 
                     }
 
