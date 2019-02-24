@@ -21,6 +21,12 @@ function getJSON(company) {
 
 function displayData(comanyName, stockGeneral, positiveId, negativeID) {
 
+
+    var company = prompt("Please enter a company name! ");
+    if (company != null) {
+        alert(company);
+    }
+
     getJSON(comanyName);
 
     setTimeout(function(){
