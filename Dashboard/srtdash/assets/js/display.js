@@ -10,43 +10,43 @@ function getJSON(company) {
     $.getJSON(path, function(json) {
         dataGlobal = json; // this will show the info it in firebug console
     });
-    
 
-    
+
+
 }
 
 //getJSON();
 
 
 
-function displayData(comanyName, stockGeneral) {
+function displayData(comanyName, stockGeneral, positiveId, negativeID) {
 
     getJSON(comanyName);
 
     setTimeout(function(){
         //do what you need here
 
-        displayEmotions(stockGeneral);
-            
-        }, 0.5);
+        displayEmotions(stockGeneral, positiveId, negativeID);
+
+      }, 500);
 }
 
-function displayEmotions(documentId) {
+function displayEmotions(documentId, positiveDocId, negativeDocId) {
 
     output = "";
-    
+
     //output ="";
 
     //output = "Emotions:<br>";
-    
+
     dictionary = dataGlobal.emotions;
-    
-        
+
+
     for (var key in dictionary) {
         // check if the property/key is defined in the object itself, not in parent
         if (dictionary.hasOwnProperty(key)) {
-            
-            /** 
+
+            /**
             dataPointsUsed.push({
                 key:   "y",
                 value: dictionary[key],
@@ -65,31 +65,33 @@ function displayEmotions(documentId) {
             output += '<li>' + key + '<span><i class=""></i>' + dictionary[key] + '</span></li>' ;
         }
     }
-            
-        
+
+
     document.getElementById(documentId).innerHTML += output;
 
-    alert(dataPointsUsed);
+    //display the positive emotion card
+    positiveOutput = dataGlobal.percentPositive;
 
-    window.onload = function() {
-        
-        var chart = new CanvasJS.Chart("chartContainer", {
-            animationEnabled: true,
-            title: {
-                text: "Desktop Search Engine Market Share - 2016"
-            },
-            data: [{
-                type: "pie",
-                startAngle: 240,
-                yValueFormatString: "##0.00\"%\"",
-                indexLabel: "{label} {y}",
-                dataPoints: dataPointsUsed
-                
-            }]
-        });
-        chart.render();
-        
-        }
+    document.getElementById(positiveDocId).innerHTML = positiveOutput;
 
+    //display the negative emotion card
+    negativeOutput = dataGlobal.percentNegative;
+
+    document.getElementById(negativeDocId).innerHTML = negativeOutput;
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title: {
+            text: "Emotional Breakdown from Recent Media"
+        },
+        data: [{
+            type: "pie",
+            startAngle: 240,
+            yValueFormatString: "##0.00\"%\"",
+            indexLabel: "{label} {y}",
+            dataPoints: dataPointsUsed
+
+        }]
+    });
+    chart.render();
 }
-

@@ -361,32 +361,57 @@
 
 
                 <div class="row">
-                        
-                                <!-- Live Crypto Price area start -->
-                                <div class="col-lg-4">
-                                        <br>
+                  <div class="col-lg-4">
+                    <div class = "col">
+                      <br>
+                      <div class="card" style = "background-color: lightgreen ;">
+                          <div class="card-body">
+                              <h4 class="header-title">Percent Positive Reaction</h4>
+                              <div class="cripto-live mt-5">
+                                  <ul id ="positiveContent">
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
 
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="header-title">Emotional Analsysis</h4>
-                                            <div class="cripto-live mt-5">
-                                                <ul id ="stockEmotions">
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                               
-                
-                               
+                      <br>
+                      <div class="card" style = "background-color: salmon ;">
+                        <div class="card-body">
+                            <h4 class="header-title">Percent Negative Reaction</h4>
+                            <div class="cripto-live mt-5">
+                                <ul id ="negativeContent">
+                                </ul>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                    <!-- Live Crypto Price area start -->
+                    <div class="col-lg-4">
+                      <br>
+                      <div class="card">
+                          <div class="card-body">
+                              <h4 class="header-title">Emotional Analysis</h4>
+                              <div class="cripto-live mt-5">
+                                  <ul id ="stockEmotions">
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+
+
+
+
 
 <div class="col-lg-4">
         <br>
 
     <div class="card">
         <div class="card-body">
-            <h4 class="header-title">Emotional Analsysis Graph</h4>
+            <h4 class="header-title">Emotional Analysis Graph</h4>
             <div class="cripto-live mt-5">
                     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
@@ -396,13 +421,13 @@
 </div>
 
 <script>
-        
+
         </script>
                                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-                                
+
 
                     <script>
-                        displayData("sample", "stockEmotions");
+                        displayData("sample", "stockEmotions", "positiveContent", "negativeContent");
                     </script>
 
                 </div>
@@ -630,7 +655,7 @@
    <!-- others plugins -->
    <script src="assets/js/plugins.js"></script>
    <script src="assets/js/scripts.js"></script>
-   
+
 </body>
 
 </html>
