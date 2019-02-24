@@ -6,11 +6,13 @@ from six.moves import urllib
 import json
 import sys
 
+
+print("test")
 # Setting your API key
-paralleldots.set_api_key("JjVbKrheM1X4KqreOA42JpECcTVxScbUCAmUGVQGiyA")
+paralleldots.set_api_key("NlSzhn0HmhTaBrK9ufzeKMoyMbJI4uGBYpJkSLXz1uo")
 
 # Viewing your API key
-#print("Our API key: " + paralleldots.get_api_key())
+print("Our API key: " + paralleldots.get_api_key())
 
 # Test getting emotion output from a string
 
@@ -18,7 +20,6 @@ def getEmotionsDicFromText(input):
     text = input
 
     emotionsDic = paralleldots.emotion(text);
-
     emotionsUnicode = emotionsDic[u'emotion'][u'probabilities']
 
     emotionsStringDic  = {}
@@ -111,12 +112,11 @@ def createJSON(nameOfCompany):
 
     dictArr = getDictArrFromStringArr(titlesArr)
 
-
     averagePercentageDict = {}
 
     averagePercentageDict["emotions"] = getAveragePercentageDict(dictArr)
 
-    averagePercentDict["companyName"] = nameOfCompany;
+    averagePercentageDict["companyName"] = nameOfCompany;
 
     percentPositive = getAveragePositiveEmotions(dictArr)
     percentNegative = getAverageNegativeEmotions(dictArr)
@@ -130,7 +130,7 @@ def createJSON(nameOfCompany):
 
     jsonOutput = json.dumps(averagePercentageDict)
 
-    obj = open('../public/assets/data/data.json', 'w')
+    obj = open('public/data.json', 'w')
     obj.write(jsonOutput)
     obj.close
 

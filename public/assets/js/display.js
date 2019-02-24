@@ -6,7 +6,6 @@ var socket = io();
 var globalCompanyName;
 
 function getJSON(company) {
-    socket.emit('request-stock', "Google");
     path = "../../data.json";
 
     // Do something
