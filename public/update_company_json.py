@@ -138,12 +138,15 @@ def createJSON(nameOfCompany):
     return jsonOutput
 
 # Run with input parameter
-companyName = sys.argv[1]
-print(len(sys.argv))
-for i in range(2, len(sys.argv)):
-    companyName += " %s" % sys.argv[i];
+print(sys.argv)
+unformattedInput = sys.argv[1];
+
+result = [x.strip() for x in unformattedInput.split(',')]
+
+companyName = result[0]
+numArticles = int(float(result[1]))
 
 print("ran script and created json with input "
-+ companyName)
++ companyName + " and " + str(numArticles) + " articles.")
 
 createJSON(companyName)

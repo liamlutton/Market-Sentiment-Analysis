@@ -124,13 +124,13 @@
                     <input type="text" id="inputTextId" class="form-control" aria-label="Text input with dropdown button">
                     <div class="input-group-append">
                         <button class="btn btn-primary" onclick="getInput('inputTextId');" type="button" data-toggle="" aria-haspopup="" aria-expanded="false">ENTER</button>
-                        <button class="btn btn-primary dropdown-toggle" style = "background-color: lightgreen;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">TRAVEL BACK</button>
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">TRAVEL BACK</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">1 Week(s)</a>
-                            <a class="dropdown-item" href="#">2 Week(s)</a>
-                            <a class="dropdown-item" href="#">3 Week(s)</a>
+                            <a class="dropdown-item" href="#" onclick = "setNumArticles(5);">1 Week(s)</a>
+                            <a class="dropdown-item" href="#" onclick = "setNumArticles(10);">2 Week(s)</a>
+                            <a class="dropdown-item" href="#" onclick = "setNumArticles(20);">3 Week(s)</a>
                             <div role="separator" class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">A godawful long time</a>
+                            <a class="dropdown-item" href="#" onclick = "setNumArticles(40);">A godawful long time (semirandom)</a>
                         </div>
                     </div>
                     <script src="/socket.io/socket.io.js"></script>
@@ -144,7 +144,7 @@
                     function getInput(userInput) {
                         input = document.getElementById(userInput).value;
 
-                        socket.emit('request-stock', input);
+                        socket.emit('request-stock', data=[input, globalNumArticles]);
                         path = "../../data.json";
 
                         setTimeout(function(){ window.open ('dashboard.html','_self',false); }, 1000);

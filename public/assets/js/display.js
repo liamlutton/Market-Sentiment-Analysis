@@ -5,6 +5,8 @@ var socket = io();
 
 var globalCompanyName;
 
+var globalNumArticles;
+
 function getJSON(company) {
     path = "../../data.json";
 
@@ -13,6 +15,11 @@ function getJSON(company) {
         dataGlobal = json; // this will show the info it in firebug console
     });
 
+}
+
+function setNumArticles(numToSet) {
+    alert(numToSet);
+    globalNumArticles = numToSet;
 }
 
 //getJSON();
