@@ -49,7 +49,7 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li class="active">
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i></a>
                                 <ul class="collapse">
                                     <li class="active"><a href="index.html">Stock Information</a></li>
                                     <li class=""><a href="twitter.html">Twitter</a></li>
@@ -271,6 +271,8 @@
 
                     </div>
                     <script src="/socket.io/socket.io.js"></script>
+                    <script src="/assets/js/display.js"></script>
+
 
                     <script>
 
@@ -284,7 +286,7 @@
                         socket.emit('request-stock', input);
                         path = "../../data.json";
 
-                        setTimeout(function(){ window.open ('dashboard','_self',false); }, 500);
+                        setTimeout(function(){ window.open ('dashboard','_self',false); }, 2000);
 
 
 

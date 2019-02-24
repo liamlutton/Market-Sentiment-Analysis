@@ -3,6 +3,7 @@ var dataPointsUsed = [];
 
 var socket = io();
 
+var globalCompanyName;
 
 function getJSON(company) {
     socket.emit('request-stock', "Google");
@@ -17,23 +18,18 @@ function getJSON(company) {
 
 //getJSON();
 
-
-
-function displayData(comanyName, stockGeneral, positiveId, negativeID) {
-
-    
-
+function displayData(comanyName, stockGeneral, positiveId, negativeID, titleOfCompany) {
     getJSON(comanyName);
 
     setTimeout(function(){
         //do what you need here
 
-        displayEmotions(stockGeneral, positiveId, negativeID);
+        displayEmotions(stockGeneral, positiveId, negativeID, titleOfCompany);
 
       }, 500);
 }
 
-function displayEmotions(documentId, positiveDocId, negativeDocId) {
+function displayEmotions(documentId, positiveDocId, negativeDocId, companyNameId) {
 
     output = "";
 
@@ -68,6 +64,9 @@ function displayEmotions(documentId, positiveDocId, negativeDocId) {
         }
     }
 
+    alert(dataGlobal.companyName);
+
+    document.getElementById(companyNameId).innerHTML = dataGlobal.companyName;
 
     document.getElementById(documentId).innerHTML += output;
 

@@ -111,7 +111,9 @@ def createJSON(nameOfCompany):
 
     dictArr = getDictArrFromStringArr(titlesArr)
 
+
     averagePercentageDict = {}
+    averagePercentDict["companyName"] = nameOfCompany;
     averagePercentageDict["emotions"] = getAveragePercentageDict(dictArr)
 
     percentPositive = getAveragePositiveEmotions(dictArr)
