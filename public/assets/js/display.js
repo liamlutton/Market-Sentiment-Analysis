@@ -42,10 +42,13 @@ function displayEmotions(a, b, c, d) {
     }
     document.getElementById(d).innerHTML = dataGlobal.companyName + " (" + dataGlobal.numberArticlesAnalyzed + " nodes back)";
     document.getElementById(a).innerHTML += output;
+
     positiveOutput = dataGlobal.percentPositive;
     document.getElementById(b).innerHTML = positiveOutput + "%";
+    
     negativeOutput = dataGlobal.percentNegative;
     document.getElementById(c).innerHTML = negativeOutput + "%";
+
     var f = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
         title: {
@@ -60,4 +63,5 @@ function displayEmotions(a, b, c, d) {
         } ]
     });
     f.render();
+
 }
