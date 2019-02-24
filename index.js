@@ -1,24 +1,25 @@
 var shell = require('shelljs');
+var path = require('path');
 
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+
 var port = 3000;
 
+app.use(express.static(__dirname + "/public"));
+
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/dashboard.html');
 });
 
-// app.post('/scripts/python_test.py', function(req, res){
-//   // console.log(req);
-//   res.sendFile(__dirname + '/scripts/python_test.py');
-// });
 
 io.on('connection', function(socket){
-    console.log('a user connecetd');
-    socket.on('chat message', function(msg){
-    shell.exec('sh run_file.sh ' + msg)
-    io.emit('chat message', msg);
+    console.log('User entered website');
+    socket.on('request-stock', function(msg){
+        shell.exec('sh run_file.sh ' + msg)
+        //io.emit('request-stock', msg);
   });
 });
 

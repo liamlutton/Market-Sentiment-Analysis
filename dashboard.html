@@ -53,12 +53,10 @@
                                 <ul class="collapse">
                                     <li class="active"><a href="index.html">Stock Information</a></li>
                                     <li class=""><a href="twitter.html">Twitter</a></li>
-
                                     
                                 </ul>
                             </li>
-
-
+                    
                         </ul>
                     </nav>
                 </div>
@@ -248,7 +246,7 @@
                     </div>
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
-                            
+                            <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Donald Glover<i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Message</a>
@@ -261,29 +259,84 @@
             </div>
             <!-- page title area end -->
             <div class="main-content-inner">
-                <br>
-                <br>
-                <h1>ENTER A STOCK</h1>
-                <div class="input-group mb-3" style="width:50%;">
-                    <input type="text" id="inputTextId" class="form-control" aria-label="Text input with dropdown button">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" onclick="getInput('inputTextId');" type="button" data-toggle="" aria-haspopup="" aria-expanded="false">ENTER</button>
-                        
+
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <script src="/socket.io/socket.io.js"></script>
+                <script src="assets/js/display.js"></script>
+
+
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class = "col">
+                      <br>
+                      <div class="card" style = "background-color: lightgreen ;">
+                          <div class="card-body">
+                              <h4 class="header-title">Percent Positive Reaction</h4>
+                              <div class="cripto-live mt-5">
+                                  <ul id ="positiveContent">
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+
+
+                      <br>
+                      <div class="card" style = "background-color: salmon ;">
+                        <div class="card-body">
+                            <h4 class="header-title">Percent Negative Reaction</h4>
+                            <div class="cripto-live mt-5">
+                                <ul id ="negativeContent">
+                                </ul>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                    <!-- Live Crypto Price area start -->
+                    <div class="col-lg-4">
+                      <br>
+                      <div class="card">
+                          <div class="card-body">
+                              <h4 class="header-title">Emotional Analysis</h4>
+                              <div class="cripto-live mt-5">
+                                  <ul id ="stockEmotions">
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
                     </div>
 
+
+
+
+
+<div class="col-lg-4">
+        <br>
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="header-title">Emotional Analysis Graph</h4>
+            <div class="cripto-live mt-5">
+                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+        </script>
+                                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
                     <script>
-
-                    function getInput(userInput) {
-
-                        input = document.getElementById(userInput).value;
-
-
-                    }
-
+                        displayData("sample", "stockEmotions", "positiveContent", "negativeContent");
                     </script>
 
                 </div>
-
             </div>
         </div>
         <!-- main content area end -->
@@ -302,6 +355,7 @@
         <ul class="nav offset-menu-tab">
             <li><a class="active" data-toggle="tab" href="#activity">Activity</a></li>
             <li><a data-toggle="tab" href="#settings">Settings</a></li>
+            
         </ul>
         <div class="offset-content tab-content">
             <div id="activity" class="tab-pane fade in show active">
