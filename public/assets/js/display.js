@@ -3,10 +3,10 @@ var dataPointsUsed = [];
 
 var socket = io();
 
-function getJSON(company) {
-    socket.emit('request-stock', 'eBay');
 
-    path = "assets/js/data/" + company + ".json";
+function getJSON(company) {
+    socket.emit('request-stock', "Microsft");
+    path = "public/assets/data/data.json";
 
     // Do something
     $.getJSON(path, function(json) {
@@ -20,6 +20,9 @@ function getJSON(company) {
 
 
 function displayData(comanyName, stockGeneral, positiveId, negativeID) {
+
+    alert("RUNNING");
+
     getJSON(comanyName);
 
     setTimeout(function(){

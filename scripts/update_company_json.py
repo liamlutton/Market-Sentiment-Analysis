@@ -126,6 +126,11 @@ def createJSON(nameOfCompany):
 
     jsonOutput = json.dumps(averagePercentageDict)
 
+    obj = open('../public/assets/data/data.json', 'w')
+    obj.write(jsonOutput)
+    obj.close
+
+    print("Created json file")
     return jsonOutput
 
 # Run with input parameter
@@ -133,4 +138,5 @@ companyName = sys.argv[1]
 for i in range(2, len(sys.argv)):
     companyName += " %s" % sys.argv[i];
 
-print(createJSON(companyName))
+print("running script")
+createJSON(companyName)
