@@ -1,0 +1,42 @@
+{
+    "links": [
+      "https://investorplace.com/2019/02/are-amazon-stocks-high-growth-days-over/",
+      "https://www.investors.com/news/technology/amazon-stock-bezos-enquirer/",
+      "https://www.investors.com/news/technology/amazon-stock-earnings/",
+      "https://www.barrons.com/articles/amazon-stock-earnings-heres-what-wall-street-is-saying-51549035729",
+      "https://theoofy.com/37127/amazon-stock-forecast-can-amazon-stock-recover-and-go-higher-over-netflix-with-this-move/",
+      "https://seekingalpha.com/article/4239006-amazons-stock-facing-even-steeper-declines",
+      "https://www.thestreet.com/investing/stocks/amazon-stock-shows-a-new-reason-to-buy-it-14854451",
+      "https://www.investors.com/news/technology/amazon-earnings-amazon-stock/",
+      "https://www.barrons.com/articles/amazon-stock-drops-symantec-jumps-and-3-more-friday-morning-movers-51549030928",
+      "https://investorplace.com/2019/01/3-reasons-to-consider-buying-amazon-stock-now-simg/"
+    ],
+    "Angry": 18.9,
+    "percentNegative": 62.699999999999996,
+    "percentPositive": 37.3,
+    "emotions": {
+      "Angry": 18.9,
+      "Sad": 17.4,
+      "Fear": 18,
+      "Bored": 8.4,
+      "Excited": 21.4,
+      "Happy": 15.9
+    },
+    "Sad": 17.4,
+    "titles": [
+      "Are Amazon Stocks High-Growth Days Over? - Investorplace.com",
+      "Amazon Stock Will See New Highs Again Before You Know It - Investorplace.com",
+      "Amazon Stock: Will It Be Hurt By Bezos-Enquirer Feud? - Investor's Business Daily",
+      "Amazon Stock Falls On Concerns Of Slower Growth - Investor's Business Daily",
+      "Amazon Stock Is Falling After Earnings. Heres What Wall Street Is Saying. - Barron's",
+      "Amazon Stock Forecast: Can Amazon Stock Recover and Go Higher Over Netflix with This Move? - TheOofy.com",
+      "3 Reasons Why the Eero Buyout Will Lift Amazon Stock - Investorplace.com",
+      "Amazon's Stock Is Facing Even Steeper Declines - Seeking Alpha",
+      "Amazon Stock Shows a New Reason to Buy It After Earnings Volatility - TheStreet.com",
+      "Amazon Stock Up As Earnings To Show Sales Slowdown - Investor's Business Daily"
+    ],
+    "Fear": 18,
+    "Bored": 8.4,
+    "Excited": 21.4,
+    "Happy": 15.9
+  }
