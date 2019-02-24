@@ -1,7 +1,11 @@
 var dataGlobal;
 var dataPointsUsed = [];
 
+var socket = io();
+
 function getJSON(company) {
+    socket.emit('request-stock', 'eBay');
+
     path = "assets/js/data/" + company + ".json";
 
     // Do something

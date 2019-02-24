@@ -14,7 +14,6 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/dashboard.html');
 });
 
-
 io.on('connection', function(socket){
     console.log('User entered website');
     socket.on('request-stock', function(msg){
