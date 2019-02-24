@@ -14,7 +14,7 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/dashboard', function(req, res){
+app.get('/dashboard.html', function(req, res){
   res.sendFile(__dirname + '/dashboard.html');
 });
 
