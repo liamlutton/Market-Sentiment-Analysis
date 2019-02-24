@@ -63,14 +63,16 @@ def getDataFrame(stockName):
 # Pandas has a built-in rolling mean calculator
 
 # Let's go ahead and plot out several moving averages
-MA_day = [10,20,50,100]
+MA_day = [10,20,50]
+#,100
 
 for ma in MA_day:
     column_name = 'MA for %s days' %(str(ma))
     getDataFrame(stockSymbol)[column_name] = getDataFrame(stockSymbol)['Close'].rolling(ma).mean()
     #getDataFrame(stockSymbol)[column_name] = getDataFrame(stockSymbol)['Close'].rolling(ma).mean()
 
-p3 = getDataFrame(stockSymbol)[['Close','MA for 10 days','MA for 20 days','MA for 50 days','MA for 100 days']].plot(subplots=False,figsize=(10,4)).figure
+p3 = getDataFrame(stockSymbol)[['Close','MA for 10 days','MA for 20 days','MA for 50 days']].plot(subplots=False,figsize=(10,4)).figure
+#,'MA for 100 days'
 p3.savefig("public/assets/js/meanaverage.png")
 
 from pandas.plotting import table
