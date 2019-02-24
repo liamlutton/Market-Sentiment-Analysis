@@ -6,7 +6,7 @@ var socket = io();
 
 var globalCompanyName;
 
-var globalNumArticles;
+var globalNumArticles = 0;
 
 function getJSON(a) {
     path = "../../data.json";
@@ -20,13 +20,15 @@ function setNumArticles(a) {
     globalNumArticles = a;
 }
 
-function getNumARticles() {}
-
 function displayData(a, b, c, d, e) {
     getJSON(a);
     setTimeout(function() {
         displayEmotions(b, c, d, e);
     }, 100);
+}
+
+function displayGraph(a) {
+
 }
 
 function displayEmotions(a, b, c, d) {
@@ -45,7 +47,7 @@ function displayEmotions(a, b, c, d) {
 
     positiveOutput = dataGlobal.percentPositive;
     document.getElementById(b).innerHTML = positiveOutput + "%";
-    
+
     negativeOutput = dataGlobal.percentNegative;
     document.getElementById(c).innerHTML = negativeOutput + "%";
 

@@ -107,8 +107,13 @@ def getAverageNegativeEmotions(dictArr):
     return getPercentNegative(getAveragePercentageDict(dictArr))
 
 def createJSON(nameOfCompany, articleNum):
-    titlesArr = getTitlesArr(nameOfCompany, articleNum)
-    urlArr = getUrlArr(nameOfCompany, articleNum)
+    if articleNum == 0:
+        articleNumMod = 10
+    else:
+        articleNumMod = articleNum
+
+    titlesArr = getTitlesArr(nameOfCompany, articleNumMod)
+    urlArr = getUrlArr(nameOfCompany, articleNumMod)
 
     dictArr = getDictArrFromStringArr(titlesArr)
 
@@ -118,7 +123,7 @@ def createJSON(nameOfCompany, articleNum):
 
     averagePercentageDict["companyName"] = nameOfCompany
 
-    averagePercentageDict["numberArticlesAnalyzed"] = articleNum
+    averagePercentageDict["numberArticlesAnalyzed"] = articleNumMod
 
     percentPositive = getAveragePositiveEmotions(dictArr)
     percentNegative = getAverageNegativeEmotions(dictArr)

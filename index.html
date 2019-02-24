@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/assets/js/display.js"></script>
 </head>
 
 <body>
@@ -130,8 +132,6 @@
                             <a class="dropdown-item" href="#" onclick="setNumArticles(40);">A godawful long time (semirandom)</a>
                         </div>
                     </div>
-                    <script src="/socket.io/socket.io.js"></script>
-                    <script src="/assets/js/display.js"></script>
 
                     <script>
                         var socket = io();
