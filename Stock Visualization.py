@@ -1,44 +1,24 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[45]:
-
-
-# Project: Stock Market Analysis and Prediction
-
-
-# In[46]:
-
-
-# For Data Processing
+# for data processing
 import numpy as np
 import pandas as pd
 from pandas import Series, DataFrame
 
-# Data Visualization
+# data visualization
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_style('whitegrid')
 get_ipython().magic(u'matplotlib inline')
 
-
-# In[47]:
-
-
-# For reading stock data from yahoo
+# for reading stock data from yahoo news
 from pandas_datareader import DataReader
 
-# For time stamps
+# for time stamps
 from datetime import datetime
 
-# For division
+# for division
 from __future__ import division
 
-
-# In[48]:
-
-
-#Changes StockName to Stock Symbol
+# changes stock name to stock symbol
 import json
 def findSymbol(stockName):  
     with open('stockData.json') as data_file:    
@@ -47,81 +27,39 @@ def findSymbol(stockName):
             if(stockName.lower() in v['Name'].lower()):
                 return v['Symbol']
 
-
-# In[49]:
-
-
-#Stores Stock Symbol
-#Sample User Input
-userInput = "ApPlE"
+# stores stock symbol
+userInput = "Apple"
 stockSymbol = findSymbol(userInput)
 print(stockSymbol)
 
-
-# In[50]:
-
-
-# set up Start and End time for data grab
+# set up start and end times for data grabbing
 end = datetime.now()
 start = datetime(end.year-1,end.month,end.day)
 
-#For-loop for grabing google finance data and setting as a dataframe
-# Set DataFrame as the Stock Ticker
+# set DataFrame as the Stock Ticker
 
 globals()[stockSymbol] = DataReader(stockSymbol,'yahoo',start,end)
 
-
-# In[51]:
-
-
 def getDataFrame(stockName):
     return globals()[stockName]
-    
-
-
-# In[52]:
-
 
 getDataFrame(stockSymbol).head()
 
-
-# In[53]:
-
-
-# Summery stats for Apple Stock
+# summary stats for Apple stock
 getDataFrame(stockSymbol).describe()
 
-
-# In[54]:
-
-
-# General Info
+# general info
 getDataFrame(stockSymbol).info()
 
-
-# In[55]:
-
-
-# Let's see a historical view of the closing price
+# historical view of the closing price
 p2 = getDataFrame(stockSymbol)['Close'].plot(legend=True, figsize=(10,4)).figure
 p2.savefig('closingprice.png')
 
-
-# In[56]:
-
-
-# Now let's plot the total volume of stock being traded each day over the past year
-
+# total volume of stock being traded each day over past year
 p2 = getDataFrame(stockSymbol)['Volume'].plot(legend=True, figsize=(10,4)).figure
 p2.savefig('volumesold.png')
 
-
-# In[57]:
-
-
-# Pandas has a built-in rolling mean calculator
-
-# Let's go ahead and plot out several moving averages
+# plot of several moving averages found with rolling mean calculator
 MA_day = [10,20,50,100]
 
 for ma in MA_day:
@@ -129,17 +67,8 @@ for ma in MA_day:
     getDataFrame(stockSymbol)[column_name] = getDataFrame(stockSymbol)['Close'].rolling(ma).mean()
     #getDataFrame(stockSymbol)[column_name] = getDataFrame(stockSymbol)['Close'].rolling(ma).mean()
 
-
-# In[58]:
-
-
-
 p3 = getDataFrame(stockSymbol)[['Close','MA for 10 days','MA for 20 days','MA for 50 days','MA for 100 days']].plot(subplots=False,figsize=(10,4)).figure
 p3.savefig("meanaverage.png")
-
-
-# In[ ]:
-
 
 from pandas.plotting import table
 
@@ -150,27 +79,3 @@ ax.yaxis.set_visible(False)  # hide the y axis
 table(ax, getDataFrame(stockSymbol))  # where df is your data frame
 plt.gcf
 plt.savefig('mytable.png')
-
-
-# In[ ]:
-
-
-#graph = getDataFrame(stockSymbol)[['Close','MA for 10 days','MA for 20 days','MA for 50 days','MA for 100 days']]
-#fig = graph.plot(subplots=False,figsize=(10,4))
-#graph2 = pd.matplotlib(graph)
-#fig2 = graph2.get_figure()
-#fig2.savefig("output.png")
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-#from subprocess import call
-#call(["open", "graph3.png"])
-
