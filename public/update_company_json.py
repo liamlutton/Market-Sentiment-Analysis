@@ -106,9 +106,9 @@ def getAveragePositiveEmotions(dictArr):
 def getAverageNegativeEmotions(dictArr):
     return getPercentNegative(getAveragePercentageDict(dictArr))
 
-def createJSON(nameOfCompany):
-    titlesArr = getTitlesArr(nameOfCompany, 10)
-    urlArr = getUrlArr(nameOfCompany, 10)
+def createJSON(nameOfCompany, articleNum):
+    titlesArr = getTitlesArr(nameOfCompany, articleNum)
+    urlArr = getUrlArr(nameOfCompany, articleNum)
 
     dictArr = getDictArrFromStringArr(titlesArr)
 
@@ -116,7 +116,9 @@ def createJSON(nameOfCompany):
 
     averagePercentageDict["emotions"] = getAveragePercentageDict(dictArr)
 
-    averagePercentageDict["companyName"] = nameOfCompany;
+    averagePercentageDict["companyName"] = nameOfCompany
+
+    averagePercentageDict["numberArticlesAnalyzed"] = articleNum
 
     percentPositive = getAveragePositiveEmotions(dictArr)
     percentNegative = getAverageNegativeEmotions(dictArr)
@@ -149,4 +151,4 @@ numArticles = int(float(result[1]))
 print("ran script and created json with input "
 + companyName + " and " + str(numArticles) + " articles.")
 
-createJSON(companyName)
+createJSON(companyName, numArticles)

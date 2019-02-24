@@ -5,7 +5,7 @@ var socket = io();
 
 var globalCompanyName;
 
-var globalNumArticles = 10;
+var globalNumArticles;
 
 function getJSON(company) {
     path = "../../data.json";
@@ -73,19 +73,19 @@ function displayEmotions(documentId, positiveDocId, negativeDocId, companyNameId
         }
     }
 
-    document.getElementById(companyNameId).innerHTML = dataGlobal.companyName + " (" + globalNumArticles + " nodes back)";
+    document.getElementById(companyNameId).innerHTML = dataGlobal.companyName + " (" + dataGlobal.numberArticlesAnalyzed + " nodes back)";
 
     document.getElementById(documentId).innerHTML += output;
 
     //display the positive emotion card
     positiveOutput = dataGlobal.percentPositive;
 
-    document.getElementById(positiveDocId).innerHTML = positiveOutput;
+    document.getElementById(positiveDocId).innerHTML = positiveOutput + "%";
 
     //display the negative emotion card
     negativeOutput = dataGlobal.percentNegative;
 
-    document.getElementById(negativeDocId).innerHTML = negativeOutput;
+    document.getElementById(negativeDocId).innerHTML = negativeOutput + "%";
 
     var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
