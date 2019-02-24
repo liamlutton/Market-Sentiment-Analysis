@@ -144,22 +144,16 @@
                             </div>
 
                             <br>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="header-title">Trend Prediction Graph</h4>
-                                    <div class="cripto-live mt-5">
-                                        <div id="vinGraphContainer" style="height: 370px; width: 100%;"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <button class="btn btn-primary" id = "toggleVisButton" type="button" data-toggle="" aria-haspopup="" aria-expanded="false">Show Trend Graph</button>
 
                         </div>
                     </div>
 
+
                     <!-- Live Crypto Price area start -->
                     <div class="col-lg-4">
                         <br>
-                        <div class="card">
+                        <div class="card" style = "background-color: lightblue;">
                             <div class="card-body">
                                 <h4 class="header-title">Emotional Analysis</h4>
                                 <div class="cripto-live mt-5">
@@ -188,9 +182,27 @@
                     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
                     <script>
-                        displayData("sample", "stockEmotions", "positiveContent", "negativeContent", "companyLabel");
+                        displayData("sample", "stockEmotions", "positiveContent", "negativeContent", "companyLabel", "vinGraphContainer");
                     </script>
 
+                </div>
+
+                <div class = "row">
+                    <br>
+                    <div class="card" id = "graphCardContainer">
+                        <div class="card-body">
+                            <h4 class="header-title">Trend Prediction Graph</h4>
+                            <div class="cripto-live mt-5">
+                                <div id="vinGraphContainer" style="height: 370px; width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                    $( "#toggleVisButton" ).click(function() {
+                    $( "#graphCardContainer" ).toggle();
+                    });
+                    </script>
                 </div>
             </div>
         </div>

@@ -20,18 +20,14 @@ function setNumArticles(a) {
     globalNumArticles = a;
 }
 
-function displayData(a, b, c, d, e) {
+function displayData(a, b, c, d, e, graphId) {
     getJSON(a);
     setTimeout(function() {
-        displayEmotions(b, c, d, e);
+        displayEmotions(b, c, d, e, graphId);
     }, 100);
 }
 
-function displayGraph(a) {
-
-}
-
-function displayEmotions(a, b, c, d) {
+function displayEmotions(a, b, c, d, graphContainerId) {
     output = "";
     dictionary = dataGlobal.emotions;
     for (var e in dictionary) if (dictionary.hasOwnProperty(e)) {
@@ -66,4 +62,5 @@ function displayEmotions(a, b, c, d) {
     });
     f.render();
 
+    document.getElementById(graphContainerId).innerHTML = "<img src='public/assets/images/meanaverage.png'/>";
 }

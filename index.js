@@ -22,6 +22,10 @@ app.get('/twitter.html', function(req, res){
   res.sendFile(__dirname + '/twitter.html');
 });
 
+app.get('/public/assets/images/meanaverage.png', function(req, res){
+  res.sendFile(__dirname + '/public/assets/images/meanaverage.png');
+});
+
 io.on('connection', function(socket){
     console.log('User entered website');
     socket.on('request-stock', function(msg){

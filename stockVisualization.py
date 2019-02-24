@@ -114,7 +114,7 @@ for ma in MA_day:
 
 
 p3 = getDataFrame(stockSymbol)[['Close','MA for 10 days','MA for 20 days','MA for 50 days','MA for 100 days']].plot(subplots=False,figsize=(10,4)).figure
-p3.savefig("meanaverage.png")
+p3.savefig("public/assets/js/meanaverage.png")
 
 
 # In[ ]:
