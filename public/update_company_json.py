@@ -135,6 +135,12 @@ def createJSON(nameOfCompany, articleNum):
 
     averagePercentageDict["links"] = urlArr
 
+    titlesLinkDict = {}
+    for urlNum in range(len(titlesArr)):
+        titlesLinkDict[titlesArr[urlNum]] = urlArr[urlNum]
+
+    averagePercentageDict["titlesToLinkDict"] = titlesLinkDict
+
     jsonOutput = json.dumps(averagePercentageDict)
 
     obj = open('public/data.json', 'w')

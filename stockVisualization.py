@@ -5,6 +5,8 @@ import numpy as np
 import pandas as pd
 from pandas import Series, DataFrame
 
+import sys
+
 # Data Visualization
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -28,7 +30,7 @@ def findSymbol(stockName):
 
 #Stores Stock Symbol
 #Sample User Input
-userInput = "amazon"
+userInput = sys.argv[1]
 stockSymbol = findSymbol(userInput)
 print(stockSymbol)
 
@@ -73,7 +75,7 @@ for ma in MA_day:
 
 p3 = getDataFrame(stockSymbol)[['Close','MA for 10 days','MA for 20 days']].plot(subplots=False,figsize=(10,4)).figure
 #,'MA for 50 days','MA for 100 days'
-p3.savefig("public/assets/js/meanaverage.png")
+p3.savefig("public/assets/images/meanaverage.png")
 
 from pandas.plotting import table
 

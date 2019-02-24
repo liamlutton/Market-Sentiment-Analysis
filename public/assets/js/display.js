@@ -2,8 +2,6 @@ var dataGlobal;
 
 var dataPointsUsed = [];
 
-var socket = io();
-
 var globalCompanyName;
 
 var globalNumArticles = 0;
@@ -16,7 +14,6 @@ function getJSON(a) {
 }
 
 function setNumArticles(a) {
-    alert(a);
     globalNumArticles = a;
 }
 
@@ -36,7 +33,7 @@ function displayEmotions(a, b, c, d, graphContainerId) {
             label: e
         });
         if (dictionary[e] > 18) color = "lightgreen;"; else color = "red;";
-        output += "<li>" + e + '<span><i class=""></i>' + dictionary[e] + "</span></li>";
+        output += "<li>" + e + '<span><i class=""></i>' + dictionary[e] + "%</span></li>";
     }
     document.getElementById(d).innerHTML = dataGlobal.companyName + " (" + dataGlobal.numberArticlesAnalyzed + " nodes back)";
     document.getElementById(a).innerHTML += output;
