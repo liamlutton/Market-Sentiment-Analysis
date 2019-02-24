@@ -25,7 +25,7 @@ function displayData(comanyName, stockGeneral, positiveId, negativeID, titleOfCo
 
         displayEmotions(stockGeneral, positiveId, negativeID, titleOfCompany);
 
-      }, 500);
+    }, 100);
 }
 
 function displayEmotions(documentId, positiveDocId, negativeDocId, companyNameId) {
@@ -37,7 +37,6 @@ function displayEmotions(documentId, positiveDocId, negativeDocId, companyNameId
     //output = "Emotions:<br>";
 
     dictionary = dataGlobal.emotions;
-
 
     for (var key in dictionary) {
         // check if the property/key is defined in the object itself, not in parent
@@ -62,8 +61,6 @@ function displayEmotions(documentId, positiveDocId, negativeDocId, companyNameId
             output += '<li>' + key + '<span><i class=""></i>' + dictionary[key] + '</span></li>' ;
         }
     }
-
-    alert(dataGlobal.companyName);
 
     document.getElementById(companyNameId).innerHTML = dataGlobal.companyName;
 
