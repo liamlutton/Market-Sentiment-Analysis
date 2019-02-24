@@ -18,6 +18,10 @@ app.get('/dashboard.html', function(req, res){
   res.sendFile(__dirname + '/dashboard.html');
 });
 
+app.get('/twitter.html', function(req, res){
+  res.sendFile(__dirname + '/twitter.html');
+});
+
 io.on('connection', function(socket){
     console.log('User entered website');
     socket.on('request-stock', function(msg){

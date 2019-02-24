@@ -24,8 +24,8 @@ from datetime import datetime
 
 #Changes StockName to Stock Symbol
 import json
-def findSymbol(stockName):  
-    with open('stockData.json') as data_file:    
+def findSymbol(stockName):
+    with open('stockData.json') as data_file:
         data = json.load(data_file)
         for v in data:
             if(stockName.lower() in v['Name'].lower()):
@@ -33,7 +33,7 @@ def findSymbol(stockName):
 
 #Stores Stock Symbol
 #Sample User Input
-userInput = "ApPlE"
+userInput = "amazon"
 stockSymbol = findSymbol(userInput)
 print(stockSymbol)
 
@@ -55,7 +55,7 @@ globals()[stockSymbol] = DataReader(stockSymbol,'yahoo',start,end)
 
 def getDataFrame(stockName):
     return globals()[stockName]
-    
+
 
 
 # In[52]:
@@ -152,4 +152,3 @@ plt.savefig('mytable.png')
 
 #from subprocess import call
 #call(["open", "graph3.png"])
-
