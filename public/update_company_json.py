@@ -126,7 +126,7 @@ def createJSON(nameOfCompany):
 
     jsonOutput = json.dumps(averagePercentageDict)
 
-    obj = open('public/data.json', 'w')
+    obj = open('../public/assets/data/data.json', 'w')
     obj.write(jsonOutput)
     obj.close
 

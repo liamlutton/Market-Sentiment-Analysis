@@ -5,8 +5,8 @@ var socket = io();
 
 
 function getJSON(company) {
-    socket.emit('request-stock', "Microsft");
-    path = "public/assets/data/data.json";
+    socket.emit('request-stock', "Google");
+    path = "../../data.json";
 
     // Do something
     $.getJSON(path, function(json) {
@@ -21,7 +21,7 @@ function getJSON(company) {
 
 function displayData(comanyName, stockGeneral, positiveId, negativeID) {
 
-    alert("RUNNING");
+    
 
     getJSON(comanyName);
 
