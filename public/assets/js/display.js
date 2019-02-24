@@ -5,7 +5,7 @@ var socket = io();
 
 var globalCompanyName;
 
-var globalNumArticles;
+var globalNumArticles = 10;
 
 function getJSON(company) {
     path = "../../data.json";
@@ -20,6 +20,10 @@ function getJSON(company) {
 function setNumArticles(numToSet) {
     alert(numToSet);
     globalNumArticles = numToSet;
+}
+
+function getNumARticles() {
+
 }
 
 //getJSON();
@@ -69,7 +73,7 @@ function displayEmotions(documentId, positiveDocId, negativeDocId, companyNameId
         }
     }
 
-    document.getElementById(companyNameId).innerHTML = dataGlobal.companyName;
+    document.getElementById(companyNameId).innerHTML = dataGlobal.companyName + " (" + globalNumArticles + " nodes back)";
 
     document.getElementById(documentId).innerHTML += output;
 
