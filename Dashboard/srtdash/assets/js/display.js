@@ -11,8 +11,6 @@ function getJSON(company) {
         dataGlobal = json; // this will show the info it in firebug console
     });
 
-
-
 }
 
 //getJSON();
